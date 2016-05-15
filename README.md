@@ -5,7 +5,7 @@ Home: https://github.com/GrumpyNounours/PySeidon
 
 Package license: GPL-3.0
 
-Feedstock license: BSD
+Feedstock license: BSD 3-Clause
 
 Summary: Suite of tools for the tidal energy community and FVCOM users
 
@@ -69,6 +69,7 @@ Terminology
 
 Current build status
 ====================
+
 Linux: [![Circle CI](https://circleci.com/gh/conda-forge/pyseidon-feedstock.svg?style=svg)](https://circleci.com/gh/conda-forge/pyseidon-feedstock)
 OSX: [![TravisCI](https://travis-ci.org/conda-forge/pyseidon-feedstock.svg?branch=master)](https://travis-ci.org/conda-forge/pyseidon-feedstock) 
 Windows: [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/conda-forge/pyseidon-feedstock?svg=True)](https://ci.appveyor.com/project/conda-forge/pyseidon-feedstock/branch/master)
