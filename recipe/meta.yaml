@@ -1,51 +1,50 @@
 {% set version = "2.5" %}
 
 package:
-    name: pyseidon
-    version: {{ version }}
+  name: pyseidon
+  version: {{ version }}
 
 source:
-    fn: v{{ version }}.tar.gz
-    url: https://github.com/GrumpyNounours/PySeidon/archive/v{{ version }}.tar.gz
-    sha256: fc498611e01e3a832c080394df999585893db886ea494cfbee4c77e496fea267
-    patches:
-        # Workaround a `raw_input` [y/n] question.
-        - setup.patch
+  url: https://github.com/GrumpyNounours/PySeidon/archive/v{{ version }}.tar.gz
+  sha256: fc498611e01e3a832c080394df999585893db886ea494cfbee4c77e496fea267
+  patches:
+    # Workaround a `raw_input` [y/n] question.
+    - setup.patch
 
 build:
-    number: 0
-    skip: True  # [py3k]
-    script: python setup.py install --single-version-externally-managed --record record.txt
+  number: 0
+  skip: True  # [py3k or win]
+  script: python -m pip install --no-deps --ignore-installed .
 
 requirements:
-    build:
-        - python
-        - setuptools
-    run:
-        - python
-        - h5py 2.5.0
-        - utide
-        - numpy
-        - pydap
-        - scipy
-        - pandas
-        - seaborn
-        - numexpr
-        - netcdf4
-        - networkx
-        - matplotlib
+  build:
+    - python
+    - pip
+  run:
+    - python
+    - utide
+    - numpy
+    - pandas
+    - pydap
+    - networkx
+    - seaborn
+    - scipy
+    - matplotlib
+    - h5py
+    - numexpr
+    - netcdf4
 
 test:
-    imports:
-        - pyseidon
+  imports:
+    - pyseidon
 
 about:
-    home: https://github.com/GrumpyNounours/PySeidon
-    license: GPL-3.0
-    summary: Suite of tools for the tidal energy community and FVCOM users
+  home: https://github.com/GrumpyNounours/PySeidon
+  license: GPL-3.0
+  summary: Suite of tools for the tidal energy community and FVCOM users
 
 extra:
-    recipe-maintainers:
-        - GrumpyNounours
-        - ocefpaf
-        - wesleybowman
+  recipe-maintainers:
+    - GrumpyNounours
+    - ocefpaf
+    - wesleybowman
