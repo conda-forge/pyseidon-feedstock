@@ -12,27 +12,27 @@ source:
     - setup.patch
 
 build:
-  number: 0
-  skip: True  # [py3k or win]
-  script: python -m pip install --no-deps --ignore-installed .
+  number: 1
+  noarch: python
+  script: "{{ PYTHON }} -m pip install . --no-deps -vv"
 
 requirements:
-  build:
-    - python
+  host:
+    - python <3
     - pip
   run:
-    - python
+    - python <3
+    - h5py
     - utide
     - numpy
-    - pandas
     - pydap
-    - networkx
-    - seaborn
     - scipy
-    - matplotlib
-    - h5py
+    - pandas
+    - seaborn
     - numexpr
     - netcdf4
+    - networkx
+    - matplotlib
 
 test:
   imports:
@@ -41,6 +41,7 @@ test:
 about:
   home: https://github.com/GrumpyNounours/PySeidon
   license: GPL-3.0
+  license_file: License_PySeidon.txt
   summary: Suite of tools for the tidal energy community and FVCOM users
 
 extra:
